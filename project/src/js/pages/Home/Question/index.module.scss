@@ -1,0 +1,50 @@
+.box {
+  color: #fff;
+  opacity: 0;
+  transition: 1s;
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+.q {
+  font-weight: bold;
+  font-size: 0.5rem;
+}
+
+.aBox {
+  margin-top: 1rem;
+
+  .a {
+    display: flex;
+    align-items: center;
+    opacity: 0.6;
+    font-size: 0.3rem;
+    margin-bottom: 0.4rem;
+    transition: 0.5s;
+
+    div {
+      flex: 1;
+    }
+
+    &:before {
+      content: '';
+      width: 0.3rem;
+      height: 0.3rem;
+      border: 0.01rem solid #fff;
+      border-radius: 0.08rem;
+      margin-right: 0.2rem;
+      transition: 0.5s;
+    }
+
+    &.active {
+      opacity: 1;
+
+      &:before {
+        background-color: #fff;
+        border-radius: 100%;
+      }
+    }
+  }
+}
