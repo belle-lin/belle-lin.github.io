@@ -5,9 +5,11 @@ import Question from './Question';
 import Ending from './Ending';
 import stories from 'app/stories';
 import { initState, reducer } from './store';
-import bgmAudio from 'assets/audios/bgm.mp3';
-import clickAudio from 'assets/audios/click.mp3';
 import styles from './index.module.scss';
+
+const bgmAudio = 'https://hyncao.oss-cn-hangzhou.aliyuncs.com/audios/bgm.mp3';
+const clickAudio =
+  'https://hyncao.oss-cn-hangzhou.aliyuncs.com/audios/click.mp3';
 
 export default () => {
   const bgmRef = useRef();
@@ -51,6 +53,10 @@ export default () => {
 
   const submit = useCallback(async () => {
     if (state.btnDisabled) return;
+    clickRef.current.currentTime = 0;
+    bgmRef.current.volume = 0.5;
+    clickRef.current.volume = 0.5;
+    bgmRef.current.play();
     clickRef.current.play();
     const list = [...state.answerList, state.pickedAnswer];
     setState({
@@ -73,12 +79,11 @@ export default () => {
     setTimeout(() => {
       nextQuestion();
     }, 6000);
-    bgmRef.current.play();
   }, []);
 
   return (
     <div className={styles.content}>
-      <audio src={bgmAudio} autoPlay ref={bgmRef} />
+      <audio src={bgmAudio} ref={bgmRef} loop="loop" />
       <audio src={clickAudio} ref={clickRef} />
       <Bg />
       <div className={styles.question}>
