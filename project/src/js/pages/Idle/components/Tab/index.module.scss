@@ -1,0 +1,42 @@
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 -0.1rem 0.3rem -0.3rem;
+
+  .item {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    color: #999;
+
+    &.active {
+      color: #333;
+
+      img {
+        filter: none;
+      }
+    }
+
+    &.disabled {
+      background-color: #ccc;
+    }
+
+    &:first-child {
+      border-right: 0.01rem solid #ccc;
+    }
+
+    img {
+      height: 70%;
+      margin-right: 0.1rem;
+      filter: grayscale(1);
+    }
+
+    span {
+      font-size: 0.3rem;
+    }
+  }
+}

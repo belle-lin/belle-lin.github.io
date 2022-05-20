@@ -1,3 +1,5 @@
+import { Toast } from 'antd-mobile';
+
 // 延迟
 export const delay = (t) => new Promise((res) => setTimeout(res, t));
 
@@ -76,4 +78,15 @@ export const debounce = (func, wait = 500, isImmediate) => {
       }, wait);
     }
   };
+};
+
+// https://mobile.ant.design/zh/components/toast
+/**
+ *
+ * @param {string} text
+ * @param {'success' | 'fail' | 'loading' | React.ReactNode} icon
+ * @param {number} duration 0 则不消失, 单位毫秒
+ */
+export const tips = (text, icon, duration) => {
+  Toast.show({ content: text, icon, duration });
 };

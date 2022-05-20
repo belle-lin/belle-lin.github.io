@@ -6,8 +6,9 @@ const globalAppSource = '/';
 const title = 'belle-lin';
 
 const routeConfig = [
-  { title, path: 'index.html', component: 'Home' },
-  { title, path: 'index', component: 'Home' },
+  { title, path: 'index.html', component: 'Idle' },
+  { title, path: 'index', component: 'Idle' },
+  { title, path: 'home', component: 'Home' },
 ];
 
 const SetTitleRoute = ({ title, ...rest }) => {
