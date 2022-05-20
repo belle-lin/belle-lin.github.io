@@ -9,6 +9,19 @@
     flex-direction: column;
     height: 100%;
 
+    .total {
+      display: flex;
+      align-items: center;
+      height: 1rem;
+      font-size: 0.4rem;
+      color: #666;
+      border-bottom: 0.01rem solid #ccc;
+      padding: 0 0.4rem;
+      span {
+        font-weight: bold;
+      }
+    }
+
     .tabDetail {
       flex: 1;
     }

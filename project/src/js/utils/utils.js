@@ -90,3 +90,6 @@ export const debounce = (func, wait = 500, isImmediate) => {
 export const tips = (text, icon, duration) => {
   Toast.show({ content: text, icon, duration });
 };
+
+export const getPowerMultiNum = (x, factor = 1.05) =>
+  Math.round(3 * Math.pow(factor, x));

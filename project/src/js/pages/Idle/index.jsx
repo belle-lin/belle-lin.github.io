@@ -25,6 +25,14 @@ export default () => {
     [setState, state.tabList]
   );
 
+  const tabProps = useMemo(
+    () => ({
+      ...state,
+      setState,
+    }),
+    [state]
+  );
+
   useEffect(() => {}, [setState]);
 
   return (
@@ -33,11 +41,14 @@ export default () => {
         <Startup handleAnimationEnd={handleAnimationEnd} />
       ) : (
         <div className={styles.idle}>
+          <div className={styles.total}>
+            我已经 <span>{state.currentDay}</span> 天啦
+          </div>
           <div className={styles.tabDetail}>
             {state.tabList.find((i) => i.active).id === 'duorou' ? (
-              <Duorou />
+              <Duorou {...tabProps} />
             ) : (
-              <Hapi />
+              <Hapi {...tabProps} />
             )}
           </div>
           <Tab

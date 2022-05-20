@@ -1,3 +1,48 @@
-.box {
+$blue: #1677fe;
 
+.blue {
+  color: $blue;
+}
+
+.mr20 {
+  margin-right: 0.5rem;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 0.2rem;
+
+  .dayProgress {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .left {
+      flex: 1;
+      font-size: 0.3rem;
+    }
+
+    .circle {
+      flex: 1;
+    }
+
+    .grow {
+      position: absolute;
+      top: 50%;
+      right: 25%;
+      transform: translate(50%, -50%);
+    }
+  }
+
+  .hungryProgress {
+    .title {
+      margin-bottom: 0.2rem;
+    }
+  }
+
+  .btnGroup {
+    margin-top: 0.2rem;
+  }
 }

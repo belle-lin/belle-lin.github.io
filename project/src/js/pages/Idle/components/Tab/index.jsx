@@ -7,7 +7,7 @@ export default ({ className, list, currentDay, handleTabClick }) => {
   const handleClick = useCallback(
     (i) => {
       if (currentDay < i.dayLimit) {
-        tips(`${i.dayLimit}个月后解锁哦`);
+        tips(`${i.dayLimit}天后解锁哦`);
       } else {
         handleTabClick(i.id);
       }
