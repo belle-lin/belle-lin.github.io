@@ -1,7 +1,7 @@
 module.exports = {
-  "extends": "react-app",
-  "rules": {
-    "strict": "off",
-    "react-hooks/exhaustive-deps": "off"
-  }
-}
+  extends: 'react-app',
+  rules: {
+    strict: 'off',
+    'jsx-a11y/alt-text': 'off',
+  },
+};
