@@ -1,12 +1,22 @@
-import React, { useReducer, useCallback, useMemo, useEffect } from 'react';
+import React, {
+  useReducer,
+  useCallback,
+  useMemo,
+  useEffect,
+  useRef,
+} from 'react';
 import { initState, reducer } from './store';
 import Startup from './components/Startup';
 import Tab from './components/Tab';
 import Duorou from './components/Duorou';
 import Hapi from './components/Hapi';
 import styles from './index.module.scss';
+import { setLS, getLS } from 'app/utils/utils';
+
+const lsKey = 'idleState';
 
 export default () => {
+  const stateRef = useRef();
   const [state, dispatch] = useReducer(reducer, initState);
   const setState = useCallback((payload) => dispatch({ payload }), []);
 
@@ -33,7 +43,30 @@ export default () => {
     [state]
   );
 
-  useEffect(() => {}, [setState]);
+  useEffect(() => {
+    const lsState = getLS(lsKey);
+    try {
+      const parsedState = JSON.parse(lsState);
+      setState(parsedState);
+    } catch (e) {
+      console.error('数据缓存有误');
+    }
+  }, [setState]);
+
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
+
+  useEffect(() => {
+    const time = setInterval(() => {
+      setLS(lsKey, JSON.stringify({ ...stateRef.current, loading: true }));
+      // TODO 刷新缓存间隔
+    }, 10 * 1000);
+
+    return () => {
+      clearInterval(time);
+    };
+  }, []);
 
   return (
     <div className={styles.container}>

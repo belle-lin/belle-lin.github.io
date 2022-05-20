@@ -10,7 +10,7 @@ export const initState = {
   hungryProgress: 0,
   hungryAdd: 1,
 
-  autoFeed: true,
+  autoFeed: false,
 
   // 导航栏配置
   tabList: [
@@ -25,7 +25,7 @@ export const initState = {
       id: 'hapi',
       icon: tabHapiImg,
       text: '哈啤',
-      dayLimit: 0,
+      dayLimit: 3,
       active: false,
     },
   ],
