@@ -83,7 +83,7 @@ export default ({
         />
       </div>
       <div className={styles.btnGroup}>
-        <Button className={styles.mr20} color="primary" onClick={cook}>
+        <Button className={styles.mr20} color="primary" onClick={throttle(cook)}>
           泡奶粉
         </Button>
         <Button disabled={hungryProgress < 10} color="success" onClick={feed}>
